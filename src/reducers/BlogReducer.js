@@ -1,9 +1,9 @@
 const defaultState = {
-  blogs: [],
+  posts: [],
   isLoading: false,
 };
 
-export default function mapState(state = defaultState, action) {
+export default function reducer(state = defaultState, action) {
   switch (action.type) {
     case 'GET_BLOG_POST_START':
       return {
@@ -15,7 +15,7 @@ export default function mapState(state = defaultState, action) {
       return {
         ...state,
         isLoading: false,
-        places: action.places,
+        posts: action.posts,
       };
 
     case 'GET_BLOG_POST_ERROR':
