@@ -4,15 +4,18 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { getBlog } from './actions/BlogActions';
+import { getMenu } from './actions/MenuActions';
 import Home from './views/Home';
 import Shop from './views/Shop';
 
 class App extends Component {
   componentDidMount = () => {
     this.props.getBlog();
+    this.props.getMenu();
   }
 
   render() {
+    console.log(this.props.mainMenu);
     return (
       <div className="App">
         <ul>
@@ -32,7 +35,14 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => (bindActionCreators({
     getBlog,
+    getMenu,
   }, dispatch)
 );
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+const mapStateToProps = (state, ownProps) => {
+  return { 
+      mainMenu: state.menu.menu.mainMenu,
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

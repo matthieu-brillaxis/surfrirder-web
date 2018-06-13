@@ -12,7 +12,6 @@ class RoundImage extends Component {
 
     return (
       <RoundImage>
-        <
       </RoundImage>
     );
   }
