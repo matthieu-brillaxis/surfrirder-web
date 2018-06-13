@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getBlog } from '../actions/BlogActions';
+import Header from '../components/header/Header';
 
 class Home extends Component {
   componentDidMount = () => {
@@ -9,7 +10,9 @@ class Home extends Component {
   }
   render() {
     return (
+      
       <div className="Home">
+        <Header />
         HOME
       </div>
     );
