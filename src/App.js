@@ -22,6 +22,13 @@ class App extends Component {
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/shop'>Shop</Link></li>
         </ul>
+        <div>
+        <ul>
+        { this.props.mainMenu.items &&  
+        this.props.mainMenu.items.map(element => <li key={element.id}>{element.title}</li>)
+        }
+        </ul>
+        </div>
         <main>
           <Switch>
             <Route exact path='/' component={Home} />
