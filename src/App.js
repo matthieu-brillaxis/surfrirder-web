@@ -25,7 +25,20 @@ class App extends Component {
         <div>
         <ul>
         { this.props.mainMenu.items &&  
-        this.props.mainMenu.items.map(element => <li key={element.id}>{element.title}</li>)
+           this.props.mainMenu.items.map(element => 
+            <li key={element.id}>
+            {element.title}
+            { element.children &&
+              <ul>
+              { element.children.map(element => 
+                <li key={element.id}>
+                {element.title}
+                </li>
+              )}
+              </ul>
+            }
+            </li>
+          )
         }
         </ul>
         </div>
