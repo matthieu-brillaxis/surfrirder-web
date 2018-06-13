@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Shop extends Component {
   render() {
@@ -10,4 +11,4 @@ class Shop extends Component {
   }
 }
 
-export default Shop;
+export default connect(null, null)(Shop);
