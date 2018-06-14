@@ -1,6 +1,6 @@
 const defaultState = {
   page: {
-    pageData: [],
+    pageData: []
   },
   isLoading: false,
 };
@@ -13,14 +13,26 @@ export default function reducer(state = defaultState, action) {
         isLoading: true,
       };
 
-    case 'GET_PAGE_SUCCESS':
-      return {
-        ...state,
-        isLoading: false,
-        page: {
-          pageData: [...state.page.pageData, action.pageData],
-        },
-      };
+    case 'GET_PAGE_SUCCESS': {
+      let checkInArray = false;
+      if (state.page.pageData.find(obj => obj.id === action.pageData.id)) {
+        checkInArray = true;
+      }
+      if (!checkInArray) {
+        return {
+          ...state,
+          isLoading: false,
+          page: {
+            pageData: [...state.page.pageData, action.pageData]
+          }
+        };
+      } else {
+        return {
+          ...state,
+          isLoading: false
+        };
+      }
+    }
 
     case 'GET_PAGE_ERROR':
       return {
