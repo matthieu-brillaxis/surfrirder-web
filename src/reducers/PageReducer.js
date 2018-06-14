@@ -1,8 +1,8 @@
 const defaultState = {
   page: {
-    pageData: {}
+    pageData: [],
   },
-  isLoading: false
+  isLoading: false,
 };
 
 export default function reducer(state = defaultState, action) {
@@ -10,7 +10,7 @@ export default function reducer(state = defaultState, action) {
     case 'GET_PAGE_START':
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
       };
 
     case 'GET_PAGE_SUCCESS':
@@ -18,15 +18,15 @@ export default function reducer(state = defaultState, action) {
         ...state,
         isLoading: false,
         page: {
-          pageData: [...state.page.pageData, action.pageData]
-        }
+          pageData: [...state.page.pageData, action.pageData],
+        },
       };
 
     case 'GET_PAGE_ERROR':
       return {
         ...state,
         isLoading: false,
-        error: action.error
+        error: action.error,
       };
 
     default:

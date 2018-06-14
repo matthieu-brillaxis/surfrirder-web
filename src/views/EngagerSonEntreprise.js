@@ -11,7 +11,6 @@ class EngagerSonEntreprise extends Component {
   }
 
   render() {
-    console.log(this.props.location.pathname)
     return (
       <div className="EngagerSonEntreprise">
         EngagerSonEntreprise
