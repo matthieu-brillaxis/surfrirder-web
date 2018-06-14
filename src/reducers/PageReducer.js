@@ -37,7 +37,7 @@ export default function reducer(state = defaultState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.error
+        error: action.error,
       };
 
     default:

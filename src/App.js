@@ -20,7 +20,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.mainMenu);
     return (
       <div className="App">
         <ul>

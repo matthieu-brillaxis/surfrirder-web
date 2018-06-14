@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faFacebook } from '@fortawesome/fontawesome-free-brands';
-import { faTwitter } from '@fortawesome/fontawesome-free-brands';
-import { faYoutube } from '@fortawesome/fontawesome-free-brands';
-import { faGoogle } from '@fortawesome/fontawesome-free-brands';
-import { faInstagram } from '@fortawesome/fontawesome-free-brands';
+import google from './../../assets/img/google.png';
+import twitter from './../../assets/img/twitter.png';
+import facebook from './../../assets/img/facebook.png';
+import instagram from './../../assets/img/instagram.png';
+import youtube from './../../assets/img/youtube.png';
 
 class Footer extends Component {
   render() {
     const Footer = styled.footer`
-      font-size: 1.5em;
-      text-align: center;
+      background-color:#10677a;
+      padding:16px;
+      display:flex;
+      justify-content:space-around;
     `;
 
     return (
       <Footer className="footer">
-        <FontAwesomeIcon icon={faFacebook} size="2x" />
-        <FontAwesomeIcon icon={faTwitter} size="2x" />
-        <FontAwesomeIcon icon={faYoutube} size="2x" />
-        <FontAwesomeIcon icon={faGoogle} size="2x" />
-        <FontAwesomeIcon icon={faInstagram} size="2x" />
+        <img src={youtube} />
+        <img src={facebook} />
+        <img src={google} />
+        <img src={twitter} />
+        <img src={instagram} />
       </Footer>
     );
   }
