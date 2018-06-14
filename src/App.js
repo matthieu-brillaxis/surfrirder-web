@@ -8,6 +8,7 @@ import { getMenu } from './actions/MenuActions';
 import Menu from './components/general/Menu';
 import Home from './views/Home';
 import Shop from './views/Shop';
+import NotreOrganisation from './views/NotreOrganisation';
 import EngagerSonEntreprise from './views/EngagerSonEntreprise';
 import NousAiderAutrement from './views/NousAiderAutrement';
 
@@ -31,6 +32,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/shop' component={Shop} />
+            <Route path='/notre-organisation' component={NotreOrganisation} />
             <Route path='/engager-son-entreprise' component={EngagerSonEntreprise} />
             <Route path='/nous-aider-autrement' component={NousAiderAutrement} />
           </Switch>
@@ -43,6 +45,9 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => (bindActionCreators({getBlog,getMenu,}, dispatch));
 
 const mapStateToProps = (state, ownProps) => {
-  return { mainMenu: state.menu.menu.mainMenu,};}
+  return { 
+    mainMenu: state.menu.menu.mainMenu,
+  }
+;}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
