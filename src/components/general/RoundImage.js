@@ -6,13 +6,12 @@ class RoundImage extends Component {
   render() {
     const RoundImage = styled.img`
       border-radius:50%;
-      border:1px solid black;
+      border:1px solid transparent;
     `;
 
 
     return (
-      <RoundImage>
-      </RoundImage>
+      <RoundImage src={this.props.url}/>
     );
   }
 }

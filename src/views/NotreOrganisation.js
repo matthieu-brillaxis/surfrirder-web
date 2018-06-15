@@ -9,6 +9,7 @@ import Cover from '../components/cover/Cover';
 import WhiteBlock from '../components/general/WhiteBlock';
 import WaterBlock from '../components/general/WaterBlock';
 import DarkBlueBlock from '../components/general/DarkBlueBlock';
+import AdminBlock from '../components/general/AdminBlock';
 import Newsletter from '../components/newsletter/Newsletter';
 import Footer from '../components/footer/Footer';
 
@@ -28,7 +29,6 @@ class NotreOrganisation extends Component {
       );
     } else {
       const page = this.props.pageData.find(obj => obj.slug === this.props.location.pathname.substr(1));
-      console.log(page.acf);
       return (
         <div className="NotreOrganisation">
           <Header title={'Test'}/>
@@ -36,10 +36,15 @@ class NotreOrganisation extends Component {
           <WhiteBlock text={'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam'}/>
           <WaterBlock data={page.acf.block_de_donnee}/>
           <DarkBlueBlock data={page.acf.liste_block}/>
+          <AdminBlock 
+            adminTitle={page.acf['titre-conseil-administration']}
+            adminDesc={page.acf['description-conseil-administration']}
+            adminCard={page.acf['membres_du_conseil']}
+          />
           <Newsletter />
           <Footer />
         </div>
-  );
+      );
     }
   }
 }
