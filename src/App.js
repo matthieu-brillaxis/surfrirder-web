@@ -42,6 +42,9 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => (bindActionCreators({getBlog,getMenu,}, dispatch));
 
 const mapStateToProps = (state, ownProps) => {
-  return { mainMenu: state.menu.menu.mainMenu,};}
+  return { 
+    mainMenu: state.menu.menu.mainMenu,
+  };
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
