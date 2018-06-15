@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { getPage } from './../actions/PageActions';
 import Header from '../components/header/Header';
 import Cover from '../components/cover/Cover';
+import AdminBlock from '../components/general/AdminBlock';
 import Newsletter from '../components/newsletter/Newsletter';
 import Footer from '../components/footer/Footer';
 
@@ -25,15 +26,19 @@ class NotreOrganisation extends Component {
       );
     } else {
       const page = this.props.pageData.find(obj => obj.slug === this.props.location.pathname.substr(1));
-      console.log(page);
       return (
         <div className="NotreOrganisation">
           <Header title={'Test'}/>
           <Cover title={page.title.rendered} subtitle={'Donner à chacun la possibilité d\'agir en faveur des océans'}/>
+          <AdminBlock 
+            adminTitle={page.acf['titre-conseil-administration']}
+            adminDesc={page.acf['description-conseil-administration']}
+            adminCard={page.acf['membres_du_conseil']}
+          />
           <Newsletter />
           <Footer />
-          </div>
-  );
+        </div>
+      );
     }
   }
 }
