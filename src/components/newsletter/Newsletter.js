@@ -7,7 +7,6 @@ import bloc6 from '../../assets/img/bloc6.png';
 class Newsletter extends Component {
   render() {
     const NewsletterContainer = styled.div`
-      color:red;
       display:flex;
       flex-direction:column;
       flex-wrap:wrap;

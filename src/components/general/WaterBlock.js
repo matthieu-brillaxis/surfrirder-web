@@ -10,6 +10,7 @@ class WaterBlock extends Component {
       display: inline-block;
       background-color: #3BA9BC;
       width: 100%;
+      padding: 100px 0;
     `;
   
     return (

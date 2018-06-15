@@ -9,6 +9,8 @@ class ActionBlock extends Component {
     const ActionBlock = styled.div`
     width: 100%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     `;
 
     const H1 = styled.h1`
