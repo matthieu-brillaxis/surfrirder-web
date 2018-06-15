@@ -9,17 +9,17 @@ class Cover extends Component {
     const Cover = styled.div`
     width: 100%;
     height: 280px;
-    background-color: #E0E0E0;
+    background-color: #EEE7E3;
     padding: 20px;
     `;
 
     const H1 = styled.h1`
-    color: black;
+    color: #176779;
     text-transform: uppercase;
     `;
 
     const Subtitle = styled.div`
-    color: black;
+    color: #3ba9bc;
     `;
 
     return (
