@@ -12,12 +12,15 @@ class ActionBlock extends Component {
     `;
 
     const H1 = styled.h1`
-    color: black;
+    color: white;
     text-transform: uppercase;
+    margin-bottom: 0px;
+    text-align: center;
     `;
 
     const Subtitle = styled.div`
-    color: black;
+    color: white;
+    text-align: center;
     `;
 
     return (

@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { getPage } from './../actions/PageActions';
 import Header from '../components/header/Header';
 import Cover from '../components/cover/Cover';
+import WhiteBlock from '../components/general/WhiteBlock';
+import WaterBlock from '../components/general/WaterBlock';
 
 class NotreOrganisation extends Component {
   constructor(props) {
@@ -23,11 +25,13 @@ class NotreOrganisation extends Component {
       );
     } else {
       const page = this.props.pageData.find(obj => obj.slug === this.props.location.pathname.substr(1));
-      console.log(page);
+      console.log(page.acf.block_de_donnee);
       return (
         <div className="NotreOrganisation">
           <Header title={'Test'}/>
           <Cover title={page.title.rendered} subtitle={'Donner à chacun la possibilité d\'agir en faveur des océans'}/>
+          <WhiteBlock text={'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam'}/>
+          <WaterBlock data={page.acf.block_de_donnee}/>
         </div>
   );
     }
