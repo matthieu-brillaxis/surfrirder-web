@@ -30,6 +30,8 @@ class NotreOrganisation extends Component {
         <div className="NotreOrganisation">
           <Header title={'Test'}/>
           <Cover title={page.title.rendered} subtitle={'Donner à chacun la possibilité d\'agir en faveur des océans'}/>
+          <WhiteBlock text={'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam'}/>
+          <WaterBlock data={page.acf.block_de_donnee}/>
           <AdminBlock 
             adminTitle={page.acf['titre-conseil-administration']}
             adminDesc={page.acf['description-conseil-administration']}

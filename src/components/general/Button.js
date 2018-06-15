@@ -12,9 +12,8 @@ class Button extends Component {
       border-radius:32px;
       text-transform:uppercase;
       margin:16px auto 16px auto;
-      width:50%;
       font-size: 11px;
-      text)-align: center;
+      text-align: center;
     `;
   
     return (

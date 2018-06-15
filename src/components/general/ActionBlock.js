@@ -9,15 +9,20 @@ class ActionBlock extends Component {
     const ActionBlock = styled.div`
     width: 100%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     `;
 
     const H1 = styled.h1`
-    color: black;
+    color: white;
     text-transform: uppercase;
+    margin-bottom: 0px;
+    text-align: center;
     `;
 
     const Subtitle = styled.div`
-    color: black;
+    color: white;
+    text-align: center;
     `;
 
     return (
