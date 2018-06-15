@@ -2,7 +2,6 @@
 
 import axios from 'axios';
 import { API_URL } from './../config/config';
-import store from '../Store';
 
 export const getPage = (url) => (dispatch) => {
   dispatch({

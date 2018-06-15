@@ -46,7 +46,7 @@ const mapDispatchToProps = (dispatch) => (bindActionCreators({getBlog,getMenu,},
 const mapStateToProps = (state, ownProps) => {
   return { 
     mainMenu: state.menu.menu.mainMenu,
-  }
-;}
+  };
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

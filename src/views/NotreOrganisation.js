@@ -8,6 +8,8 @@ import Header from '../components/header/Header';
 import Cover from '../components/cover/Cover';
 import WhiteBlock from '../components/general/WhiteBlock';
 import WaterBlock from '../components/general/WaterBlock';
+import Newsletter from '../components/newsletter/Newsletter';
+import Footer from '../components/footer/Footer';
 
 class NotreOrganisation extends Component {
   constructor(props) {
@@ -32,6 +34,8 @@ class NotreOrganisation extends Component {
           <Cover title={page.title.rendered} subtitle={'Donner à chacun la possibilité d\'agir en faveur des océans'}/>
           <WhiteBlock text={'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam'}/>
           <WaterBlock data={page.acf.block_de_donnee}/>
+          <Newsletter />
+          <Footer />
         </div>
   );
     }
