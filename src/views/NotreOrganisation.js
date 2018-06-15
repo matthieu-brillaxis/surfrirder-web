@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { getPage } from './../actions/PageActions';
 import Header from '../components/header/Header';
 import Cover from '../components/cover/Cover';
+import Newsletter from '../components/newsletter/Newsletter';
+import Footer from '../components/footer/Footer';
 
 class NotreOrganisation extends Component {
   constructor(props) {
@@ -28,7 +30,9 @@ class NotreOrganisation extends Component {
         <div className="NotreOrganisation">
           <Header title={'Test'}/>
           <Cover title={page.title.rendered} subtitle={'Donner à chacun la possibilité d\'agir en faveur des océans'}/>
-        </div>
+          <Newsletter />
+          <Footer />
+          </div>
   );
     }
   }

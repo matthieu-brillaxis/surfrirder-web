@@ -6,7 +6,15 @@ import styled from 'styled-components';
 class Button extends Component {
   render() {
     const Button = styled.div`
-    border: 1px solid #2F80ED;
+      background-color:#10677a;
+      color:white;
+      padding:16px;
+      border-radius:32px;
+      text-transform:uppercase;
+      margin:16px auto 16px auto;
+      width:50%;
+      font-size: 11px;
+      text)-align: center;
     `;
   
     return (

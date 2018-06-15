@@ -14,6 +14,7 @@ class Footer extends Component {
       padding:16px;
       display:flex;
       justify-content:space-around;
+      margin-top:32px;
     `;
 
     return (
