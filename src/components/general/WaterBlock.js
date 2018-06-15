@@ -7,7 +7,8 @@ import ActionBlock from './ActionBlock'
 class WaterBlock extends Component {
   render() {
     const WaterBlock = styled.div`
-      display: inline-block;
+      display: flex;
+      flex-direction: column;
       background-color: #3BA9BC;
       width: 100%;
       padding: 100px 0;
@@ -15,7 +16,7 @@ class WaterBlock extends Component {
   
     return (
       <WaterBlock>
-      {this.props.data.map((prop, key) => {
+      { this.props.data.map((prop, key) => {
         return (
           <ActionBlock key={key} title={prop.titre} subtitle={prop.sous_titre} buttonTitle={prop.bouton_label}></ActionBlock>
         );
