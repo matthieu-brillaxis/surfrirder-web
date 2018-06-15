@@ -19,11 +19,11 @@ class Footer extends Component {
 
     return (
       <Footer className="footer">
-        <img src={youtube} />
-        <img src={facebook} />
-        <img src={google} />
-        <img src={twitter} />
-        <img src={instagram} />
+        <img src={youtube} alt={'youtube'}/>
+        <img src={facebook} alt={'facebook'}/>
+        <img src={google} alt={'google'}/>
+        <img src={twitter} alt={'twitter'}/>
+        <img src={instagram} alt={'instagram'}/>
       </Footer>
     );
   }

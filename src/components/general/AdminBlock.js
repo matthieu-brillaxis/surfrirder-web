@@ -6,8 +6,9 @@ import bloc4 from '../../assets/img/bloc_4.png';
 
 class AdminBlock extends Component {
   renderAdminCard = () => {
+    let key = 0;
     return (
-      this.props.adminCard.map(element => <PersonCard element={element} />)
+      this.props.adminCard.map(element => <PersonCard element={element} key={key = key + 1} />)
     );
   }
 

@@ -35,12 +35,12 @@ class NotreOrganisation extends Component {
           <Cover title={page.title.rendered} subtitle={'Donner à chacun la possibilité d\'agir en faveur des océans'}/>
           <WhiteBlock text={'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam'}/>
           <WaterBlock data={page.acf.block_de_donnee}/>
-          <DarkBlueBlock data={page.acf.liste_block}/>
           <AdminBlock 
             adminTitle={page.acf['titre-conseil-administration']}
             adminDesc={page.acf['description-conseil-administration']}
             adminCard={page.acf['membres_du_conseil']}
           />
+          <DarkBlueBlock data={page.acf.liste_block}/>
           <Newsletter />
           <Footer />
         </div>
