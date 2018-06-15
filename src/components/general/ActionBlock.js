@@ -13,6 +13,10 @@ class ActionBlock extends Component {
     flex-direction: column;
     `;
 
+    const Icone = styled.div`
+    text-align: center;
+    `;
+
     const H1 = styled.h1`
     color: white;
     text-transform: uppercase;
@@ -27,6 +31,7 @@ class ActionBlock extends Component {
 
     return (
       <ActionBlock>
+        <Icone><img src={ this.props.icone} /></Icone>
         <H1>{ this.props.title }</H1>
         <Subtitle>{ this.props.subtitle }</Subtitle>
         { this.props.buttonTitle &&  

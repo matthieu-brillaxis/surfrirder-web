@@ -18,7 +18,7 @@ class WaterBlock extends Component {
       <WaterBlock>
       { this.props.data.map((prop, key) => {
         return (
-          <ActionBlock key={key} title={prop.titre} subtitle={prop.sous_titre} buttonTitle={prop.bouton_label}></ActionBlock>
+          <ActionBlock key={key} icone={prop.icone.url} title={prop.titre} subtitle={prop.sous_titre} buttonTitle={prop.bouton_label}></ActionBlock>
         );
      })}
       </WaterBlock>
