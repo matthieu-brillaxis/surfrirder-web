@@ -6,14 +6,10 @@ import { bindActionCreators } from 'redux';
 import { getPage } from './../actions/PageActions';
 import Header from '../components/header/Header';
 import Cover from '../components/cover/Cover';
-import WhiteBlock from '../components/general/WhiteBlock';
-import WaterBlock from '../components/general/WaterBlock';
-import DarkBlueBlock from '../components/general/DarkBlueBlock';
-import AdminBlock from '../components/general/AdminBlock';
 import Newsletter from '../components/newsletter/Newsletter';
 import Footer from '../components/footer/Footer';
 
-class NotreOrganisation extends Component {
+class NotreActualite extends Component {
   constructor(props) {
     super(props);
     this.props.getPage(this.props.location.pathname);
@@ -30,17 +26,9 @@ class NotreOrganisation extends Component {
       );
     } else {
       return (
-        <div className="NotreOrganisation">
+        <div className="NotreActualite">
           <Header/>
           <Cover title={page.title.rendered} subtitle={page.acf.sous_titre}/>
-          <WhiteBlock text={'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam'}/>
-          <WaterBlock data={page.acf.block_de_donnee}/>
-          <AdminBlock 
-            adminTitle={page.acf['titre-conseil-administration']}
-            adminDesc={page.acf['description-conseil-administration']}
-            adminCard={page.acf['membres_du_conseil']}
-          />
-          <DarkBlueBlock data={page.acf.liste_block}/>
           <Newsletter />
           <Footer />
         </div>
@@ -58,4 +46,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 ;}
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotreOrganisation);
+export default connect(mapStateToProps, mapDispatchToProps)(NotreActualite);
