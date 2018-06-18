@@ -7,10 +7,11 @@ import Button from './Button';
 class ActionBlock extends Component {
   render() {
     const ActionBlock = styled.div`
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      z-index:5;
     `;
 
     const Icone = styled.div`
