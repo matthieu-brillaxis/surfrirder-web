@@ -3,15 +3,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { getBlog } from './../actions/BlogActions';
 import { getPage } from './../actions/PageActions';
 import Header from '../components/header/Header';
 import Cover from '../components/cover/Cover';
+import WhiteBlock from '../components/general/WhiteBlock';
+import Articles from '../components/general/Articles';
 import Newsletter from '../components/newsletter/Newsletter';
 import Footer from '../components/footer/Footer';
 
 class NotreActualite extends Component {
   constructor(props) {
     super(props);
+    this.props.getBlog();
     this.props.getPage(this.props.location.pathname);
   }
 
@@ -20,7 +24,8 @@ class NotreActualite extends Component {
 
   render() {
     const page = this.props.pageData.find(obj => obj.slug === this.props.location.pathname.substr(1));
-    if (this.props.isLoading === true || !page) {
+    const blogs = this.props.blogData;
+    if (this.props.isLoading === true || !page || !blogs) {
       return (
         <div>Loading</div>
       );
@@ -29,6 +34,8 @@ class NotreActualite extends Component {
         <div className="NotreActualite">
           <Header/>
           <Cover title={page.title.rendered} subtitle={page.acf.sous_titre}/>
+          <WhiteBlock text={''}/>
+          <Articles data={blogs}/>
           <Newsletter />
           <Footer />
         </div>
@@ -37,10 +44,11 @@ class NotreActualite extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({getPage}, dispatch));
+const mapDispatchToProps = (dispatch) => (bindActionCreators({getPage, getBlog}, dispatch));
 
 const mapStateToProps = (state, ownProps) => {
-  return { 
+  return {
+    blogData: state.blog.posts.data,
     pageData: state.page.page.pageData,
     isLoading: state.page.isLoading,
   }

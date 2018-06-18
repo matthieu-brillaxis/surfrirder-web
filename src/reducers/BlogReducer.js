@@ -1,6 +1,6 @@
 const defaultState = {
   posts: [],
-  isLoading: false,
+  isLoading: true,
 };
 
 export default function reducer(state = defaultState, action) {
@@ -8,7 +8,6 @@ export default function reducer(state = defaultState, action) {
     case 'GET_BLOG_POST_START':
       return {
         ...state,
-        isLoading: true,
       };
 
     case 'GET_BLOG_POST_SUCCESS':
