@@ -10,7 +10,6 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <Header title={'Test'}/>
         <Cover title={'Notre organisation'} subtitle={'Donner à chacun la possibilité d\'agir en faveur des océans'}/>
         <ActionBlock title={'10000 Adhérents'} subtitle={'répartis dans toute l\'Europe'}></ActionBlock>
         <Newsletter text={'Random text'} />

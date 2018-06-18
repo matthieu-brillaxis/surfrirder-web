@@ -7,6 +7,15 @@ import Logo from './Logo';
 import { connect } from 'react-redux';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {display: false};
+  }
+
+  handleClick = (event) => {
+    this.setState({display: !this.state.display});
+  };
+
   render() {
     const Header = styled.header`
       background-color: #EEE7E3;
@@ -29,7 +38,7 @@ class Header extends Component {
     return (
       <Header>
         <Logo />
-        <BurgerButton>
+        <BurgerButton onClick={this.handleClick}>
           <BurgerButtonBarre/>
           <BurgerButtonBarre/>
           <BurgerButtonBarre/>

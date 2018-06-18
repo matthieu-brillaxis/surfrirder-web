@@ -32,7 +32,6 @@ class NotreActualite extends Component {
     } else {
       return (
         <div className="NotreActualite">
-          <Header/>
           <Cover title={page.title.rendered} subtitle={page.acf.sous_titre}/>
           <WhiteBlock text={''}/>
           <Articles data={blogs}/>

@@ -31,7 +31,6 @@ class NotreOrganisation extends Component {
     } else {
       return (
         <div className="NotreOrganisation">
-          <Header/>
           <Cover title={page.title.rendered} subtitle={page.acf.sous_titre}/>
           <WhiteBlock text={'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam'}/>
           <WaterBlock data={page.acf.block_de_donnee}/>

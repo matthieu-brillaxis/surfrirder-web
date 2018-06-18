@@ -5,6 +5,7 @@ import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { getBlog } from './actions/BlogActions';
 import { getMenu } from './actions/MenuActions';
+import Header from './components/header/Header';
 import Menu from './components/general/Menu';
 import Home from './views/Home';
 import Shop from './views/Shop';
@@ -22,7 +23,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Menu mainMenu={this.props.mainMenu}/>
+        <Menu mainMenu={this.props.mainMenu} />
+        <Header />
         <main>
           <Switch>
             <Route exact path='/' component={Home} />
