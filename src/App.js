@@ -10,7 +10,7 @@ import Home from './views/Home';
 import Shop from './views/Shop';
 import NotreOrganisation from './views/NotreOrganisation';
 import EngagerSonEntreprise from './views/EngagerSonEntreprise';
-import NousAiderAutrement from './views/NousAiderAutrement';
+import NotreActualite from './views/NotreActualite';
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class App extends Component {
             <Route path='/shop' component={Shop} />
             <Route path='/notre-organisation' component={NotreOrganisation} />
             <Route path='/engager-son-entreprise' component={EngagerSonEntreprise} />
-            <Route path='/nous-aider-autrement' component={NousAiderAutrement} />
+            <Route path='/notre-actualite' component={NotreActualite} />
           </Switch>
         </main>
       </div>
