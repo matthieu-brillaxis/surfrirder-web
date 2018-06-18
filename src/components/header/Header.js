@@ -17,13 +17,23 @@ class Header extends Component {
     `;
 
     const BurgerButton = styled.div`
-      width: 100px;
+    `;
+
+    const BurgerButtonBarre = styled.div`
+    width: 25px;
+    height: 3px;
+    background-color: #176779;
+    margin: 4px 0;
     `;
 
     return (
       <Header>
         <Logo />
-        <BurgerButton />
+        <BurgerButton>
+          <BurgerButtonBarre/>
+          <BurgerButtonBarre/>
+          <BurgerButtonBarre/>
+        </BurgerButton>
         <ButtonDonation />
       </Header>
     );

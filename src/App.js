@@ -22,11 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/shop'>Shop</Link></li>
-        </ul>
-        <Menu mainMenu={this.props.mainMenu} />
+        <Menu mainMenu={this.props.mainMenu}/>
         <main>
           <Switch>
             <Route exact path='/' component={Home} />
