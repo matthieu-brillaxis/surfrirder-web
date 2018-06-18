@@ -32,7 +32,8 @@ class AdminBlock extends Component {
         position: absolute;
         top: -70px;
         background-color: transparent;
-      }
+      };
+
     `;
 
     const AdminTitle = styled.h1`

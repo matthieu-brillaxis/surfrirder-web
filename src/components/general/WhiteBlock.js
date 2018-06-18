@@ -17,33 +17,34 @@ class WhiteBlock extends Component {
 
       &:before {
         content:'';
-        height:70px;
+        height:100px;
         width:100%;
         background:url(${transition});
         background-size: cover;
         overflow: visible;
         position: absolute;
-        top: -68px;
+        top: -100px;
         left: 0;
         background-color: transparent;
       }
 
       &:after {
         content:'';
-        height:85px;
+        height:100px;
         width:100%;
         background:url(${transition2});
         background-size: cover;
         overflow: visible;
         position: absolute;
-        bottom: -85px;
+        bottom: -100px;
         left: 0;
         background-color: transparent;
+        z-index:99;
       }
     `;
 
     const P = styled.p`
-    color: #176779;
+    color: #3BA9BC;
     `;
 
     return (
