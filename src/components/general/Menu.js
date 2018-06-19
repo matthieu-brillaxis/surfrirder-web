@@ -2,40 +2,59 @@
 
 import React, { Component } from "react";
 import styled from 'styled-components';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faArrowLeft from '@fortawesome/fontawesome-free-solid/faArrowLeft';
+import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = {display: false};
+    this.state = {
+      display: false,
+      submenu: null,
+    };
   }
 
   handleClick = (event) => {
     this.setState({display: !this.state.display});
-    console.log('mdr');
   };
 
-  render() {
-    const Menu = styled.header`
-    position: absolute;
-    `;
+  ClickOnMenu = (e) => {
+    this.setState({submenu: e});
+  };
 
-    const ContentMenu = styled.div`
-      background-color: #3CA9BD;
-      position: absolute;
-      width: 100%
-      height: 0;
-      z-index: 999;
-      position: fixed;
-      overflow-y: hidden;
-      top: 0;
-      color: white;
-      transition-property: all;
-	    transition-duration: .5s;
-      transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-      transition: all .5s ease-in-out;
-    `;
+  handleCloseSubMenu = (e) => {
+    this.setState({submenu: null})
+  }
+
+  handleCloseAllMenu = (e) => {
+    this.setState({display: false});
+    this.setState({submenu: null});
+  }
+
+  render() {
+    // const Menu = styled.header`
+    //   position: absolute;
+    // `;
+
+    // const ContentMenu = styled.div`
+    //   background-color: #3CA9BD;
+    //   position: absolute;
+    //   width: 100%
+    //   height: 100%;
+    //   z-index: 999;
+    //   position: fixed;
+    //   overflow-y: hidden;
+    //   top: 0;
+    //   color: white;
+    //   transition-property: all;
+	  //   transition-duration: .5s;
+    //   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    //   transition: all .5s ease-in-out;
+    // `;
 
     //display: ${this.state.display ? 'block' : 'hidden'};
 
@@ -50,6 +69,12 @@ class Menu extends Component {
 
     const Close = styled.div`
     text-align: center;
+    padding:32px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.67px;
+    line-height: 20px;
+    font-family: "Open Sans";
     `;
 
     const Ul = styled.ul`
@@ -64,6 +89,11 @@ class Menu extends Component {
     color: white;
     padding: 0;
     list-style-type: none;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.67px;
+    line-height: 20px;
+    font-family: "Open Sans";
     `;
 
     const StyledLink = styled(Link)`
@@ -72,33 +102,44 @@ class Menu extends Component {
     `;
 
       return (
-        <Menu>
+        <div className='MenuContainer'>
         <BurgerButton onClick={this.handleClick}>
           <BurgerButtonBarre/>
           <BurgerButtonBarre/>
           <BurgerButtonBarre/>
         </BurgerButton>
-        <ContentMenu className={(this.state.display ? 'slidedown' : '')}>
-        <Close onClick={this.handleClick}>X</Close>
-          <Ul>
-            <Li><StyledLink to='/'>Home</StyledLink></Li>
-            <Li><StyledLink to='/shop'>Shop</StyledLink></Li>
-            {this.props.mainMenu.items &&
-              this.props.mainMenu.items.map(element => (
-                <Li key={element.id}>
-                  <StyledLink to={element.object_slug}>{element.title}</StyledLink>
-                  {element.children && (
-                    <Ul>
-                      {element.children.map(element => (
-                        <Li key={element.id}><StyledLink to={element.object_slug}>{element.title}</StyledLink></Li>
-                      ))}
-                    </Ul>
-                  )}
-                </Li>
+        <CSSTransitionGroup transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+          { this.state.display ? <div className='contentMenu'>
+            <Close onClick={this.handleClick}><FontAwesomeIcon icon={faTimes} /></Close>
+              <Ul>
+                <Li><StyledLink to='/'>Accueil</StyledLink></Li>
+                {this.props.mainMenu.items &&
+                  this.props.mainMenu.items.map(element => (
+                    <Li key={element.id}>
+                      <p onClick={() => this.ClickOnMenu(element.children)} >{element.title}</p>
+                    </Li>
+                  ))}
+              </Ul>
+            </div> : null }
+        </CSSTransitionGroup>
+        <CSSTransitionGroup transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+        { this.state.submenu && (
+          <div className='subMenu'>
+          <Close onClick={this.handleCloseAllMenu}><FontAwesomeIcon icon={faTimes} /></Close>
+          <Close onClick={this.handleCloseSubMenu}><FontAwesomeIcon icon={faArrowLeft} /> Retour</Close>
+            <Ul>
+              { this.state.submenu.map(element => (
+                <Li key={element.id}><StyledLink to={element.object_slug}>{element.title}</StyledLink></Li>
               ))}
-          </Ul>
-        </ContentMenu>
-        </Menu>
+            </Ul>
+          </div>
+        )}
+        </CSSTransitionGroup>
+        </div>
       );
   }
 }
