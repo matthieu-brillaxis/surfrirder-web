@@ -44,12 +44,12 @@ class WhiteBlock extends Component {
     `;
 
     const P = styled.p`
-    color: #3BA9BC;
+      color: #3BA9BC;
     `;
 
     return (
       <WhiteBlock>
-      <P>{ this.props.text }</P>
+        <P>{ this.props.text }</P>
       </WhiteBlock>
     );
   }
