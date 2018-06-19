@@ -28,10 +28,6 @@ body {
   transition: opacity 300ms ease-in;
 }
 
-.MenuContainer {
-  position: absolute;
-}
-
 .contentMenu {
   background-color: #3CA9BD;
   position: absolute;

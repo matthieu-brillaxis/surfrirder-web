@@ -8,6 +8,7 @@ import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { CSSTransitionGroup } from 'react-transition-group';
+import ButtonDonation from '../header/ButtonDonation';
 
 class Menu extends Component {
   constructor(props) {
@@ -101,6 +102,19 @@ class Menu extends Component {
     text-decoration: none;
     `;
 
+    const Donation = styled(Link)`
+      background-color: #10677A;
+      border-radius: 18px;
+      color: white;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 16px;
+      font-size: 0.8em;
+      height: 24px;
+      text-decoration:none;
+      line-height:4px;
+    `;
+
       return (
         <div className='MenuContainer'>
         <BurgerButton onClick={this.handleClick}>
@@ -121,6 +135,9 @@ class Menu extends Component {
                       <p onClick={() => this.ClickOnMenu(element.children)} >{element.title}</p>
                     </Li>
                   ))}
+                  <Li>
+                    <Donation to='/faire-un-don'>Faire un don</Donation>
+                  </Li>
               </Ul>
             </div> : null }
         </CSSTransitionGroup>
@@ -135,6 +152,9 @@ class Menu extends Component {
               { this.state.submenu.map(element => (
                 <Li key={element.id}><StyledLink to={element.object_slug}>{element.title}</StyledLink></Li>
               ))}
+              <Li>
+                <Donation to='/faire-un-don'>Faire un don</Donation>
+              </Li>
             </Ul>
           </div>
         )}

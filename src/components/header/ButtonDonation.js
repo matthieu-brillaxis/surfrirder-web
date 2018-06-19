@@ -8,15 +8,15 @@ class ButtonDonation extends Component {
   render() {
     const ButtonDonation = styled(Link)`
       background-color: #3BA9BC;
-      border-radius: 10px;
+      border-radius: 18px;
       color: white;
       text-transform: uppercase;
       text-align: center;
-      display: flex;
-      align-items: center;
-      padding: 10px 5px;
+      padding: 16px;
       font-size: 0.8em;
       height: 24px;
+      text-decoration:none;
+      line-height:4px;
     `;
   
     return (
