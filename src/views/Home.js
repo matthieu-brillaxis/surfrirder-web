@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/header/Header';
 import Cover from '../components/cover/Cover';
 import ActionBlock from '../components/general/ActionBlock';
 import Footer from '../components/footer/Footer';
