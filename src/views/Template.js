@@ -27,7 +27,6 @@ class Template extends Component {
     } else {
       return (
         <div className="Template">
-          <Header/>
           <Cover title={page.title.rendered} subtitle={page.acf.sous_titre}/>
           <Newsletter />
           <Footer />

@@ -8,6 +8,14 @@ body {
   box-sizing: border-box;
 }
 
+.blueColor {
+  color: #5BA6B6;
+}
+
+.radiobutton {
+  visibility: hidden;
+}
+
 .slidedown {         
   height: 100%!important;
 }
