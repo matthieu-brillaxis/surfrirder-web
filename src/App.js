@@ -1,12 +1,10 @@
+/* eslint-disable */
+
 import React, { Component } from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { bindActionCreators } from 'redux';
-import { getBlog } from './actions/BlogActions';
-import { getMenu } from './actions/MenuActions';
 import Header from './components/header/Header';
-import Menu from './components/general/Menu';
 import Home from './views/Home';
 import Shop from './views/Shop';
 import NotreOrganisation from './views/NotreOrganisation';
@@ -16,14 +14,11 @@ import NotreActualite from './views/NotreActualite';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.props.getBlog();
-    this.props.getMenu();
   }
 
   render() {
     return (
       <div className="App">
-        <Menu mainMenu={this.props.mainMenu} />
         <Header />
         <main>
           <Switch>
@@ -39,12 +34,4 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => (bindActionCreators({getBlog,getMenu,}, dispatch));
-
-const mapStateToProps = (state, ownProps) => {
-  return { 
-    mainMenu: state.menu.menu.mainMenu,
-  };
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withRouter(connect(null, null)(App));

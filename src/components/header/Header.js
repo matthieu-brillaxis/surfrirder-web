@@ -1,20 +1,19 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 import ButtonDonation from './ButtonDonation';
 import Logo from './Logo';
-import { connect } from 'react-redux';
+import Menu from './../general/Menu';
+import { getMenu } from './../../actions/MenuActions';
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {display: false};
   }
-
-  handleClick = (event) => {
-    this.setState({display: !this.state.display});
-  };
 
   render() {
     const Header = styled.header`
@@ -25,28 +24,22 @@ class Header extends Component {
       padding-top: 10px;
     `;
 
-    const BurgerButton = styled.div`
-    `;
-
-    const BurgerButtonBarre = styled.div`
-    width: 25px;
-    height: 3px;
-    background-color: #176779;
-    margin: 4px 0;
-    `;
-
     return (
       <Header>
         <Logo />
-        <BurgerButton onClick={this.handleClick}>
-          <BurgerButtonBarre/>
-          <BurgerButtonBarre/>
-          <BurgerButtonBarre/>
-        </BurgerButton>
+        <Menu mainMenu={this.props.mainMenu}/>
         <ButtonDonation />
       </Header>
     );
   }
 }
 
-export default connect(null, null)(Header);
+const mapDispatchToProps = (dispatch) => (bindActionCreators(getMenu, dispatch));
+
+const mapStateToProps = (state, ownProps) => {
+  return { 
+    mainMenu: state.menu.menu.mainMenu,
+  };
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
