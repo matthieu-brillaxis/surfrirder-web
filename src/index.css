@@ -73,3 +73,12 @@ body {
   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
   transition: all .5s ease-in-out;
 }
+
+.blueColor {
+  color: #5BA6B6;
+}
+
+.radiobutton {
+  visibility: hidden;
+}
+

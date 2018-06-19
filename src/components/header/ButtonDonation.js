@@ -1,11 +1,12 @@
 /* eslint-disable */
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 class ButtonDonation extends Component {
   render() {
-    const ButtonDonation = styled.a`
+    const ButtonDonation = styled(Link)`
       background-color: #3BA9BC;
       border-radius: 10px;
       color: white;
@@ -19,7 +20,7 @@ class ButtonDonation extends Component {
     `;
   
     return (
-      <ButtonDonation>Faire un don</ButtonDonation>
+      <ButtonDonation to='/faire-un-don'>Faire un don</ButtonDonation>
     );
   }
 }
