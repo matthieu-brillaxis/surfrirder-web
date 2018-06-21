@@ -1,12 +1,11 @@
-/* eslint-disable */
-
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from './Button';
 
-class ActionBlock extends Component {
+class ActionBlock extends PureComponent {
   render() {
-    const ActionBlock = styled.div`
+    const ActionBlockContainer = styled.div`
       width: 100%;
       padding: 20px;
       display: flex;
@@ -31,16 +30,23 @@ class ActionBlock extends Component {
     `;
 
     return (
-      <ActionBlock>
-        <Icone><img src={ this.props.icone} /></Icone>
+      <ActionBlockContainer>
+        <Icone><img src={this.props.icone} alt="icone" /></Icone>
         <H1>{ this.props.title }</H1>
         <Subtitle>{ this.props.subtitle }</Subtitle>
-        { this.props.buttonTitle &&  
-         <Button buttonTitle={this.props.buttonTitle}></Button>
+        { this.props.buttonTitle &&
+        <Button buttonTitle={this.props.buttonTitle} />
         }
-      </ActionBlock>
+      </ActionBlockContainer>
     );
   }
 }
+
+ActionBlock.propTypes = {
+  icone: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  buttonTitle: PropTypes.string.isRequired,
+};
 
 export default ActionBlock;

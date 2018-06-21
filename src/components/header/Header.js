@@ -1,6 +1,5 @@
-/* eslint-disable */
-
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { bindActionCreators } from 'redux';
@@ -10,13 +9,9 @@ import Logo from './Logo';
 import Menu from './../general/Menu';
 import { getMenu } from './../../actions/MenuActions';
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+class Header extends PureComponent {
   render() {
-    const Header = styled.header`
+    const HeaderContainer = styled.header`
       background-color: #EEE7E3;
       height:40px;
       display: flex;
@@ -25,11 +20,11 @@ class Header extends Component {
     `;
 
     return (
-      <Header>
+      <HeaderContainer>
         <Logo />
-        <Menu mainMenu={this.props.mainMenu}/>
+        <Menu mainMenu={this.props.mainMenu} />
         <ButtonDonation />
-      </Header>
+      </HeaderContainer>
     );
   }
 }
@@ -37,9 +32,13 @@ class Header extends Component {
 const mapDispatchToProps = (dispatch) => (bindActionCreators(getMenu, dispatch));
 
 const mapStateToProps = (state, ownProps) => {
-  return { 
+  return {
     mainMenu: state.menu.menu.mainMenu,
   };
-}
+};
+
+Header.propTypes = {
+  mainMenu: PropTypes.object.isRequired,
+};
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

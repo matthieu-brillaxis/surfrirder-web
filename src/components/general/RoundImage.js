@@ -1,18 +1,23 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-class RoundImage extends Component {
+class RoundImage extends PureComponent {
   render() {
-    const RoundImage = styled.img`
+    const RoundImageContainer = styled.img`
       border-radius:50%;
       border:1px solid transparent;
     `;
 
 
     return (
-      <RoundImage src={this.props.url}/>
+      <RoundImageContainer src={this.props.url} />
     );
   }
 }
+
+RoundImage.propTypes = {
+  url: PropTypes.string.isRequired,
+};
 
 export default RoundImage;

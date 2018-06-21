@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import PersonCard from '../general/PersonCard';
 import bloc4 from '../../assets/img/bloc_4.png';
 
@@ -53,7 +54,7 @@ class AdminBlock extends Component {
       flex-wrap:wrap;
       justify-content:space-evenly;
     `;
-    
+
     return (
       <AdminBlockContainer>
         <AdminTitle>{ this.props.adminTitle }</AdminTitle>
@@ -65,5 +66,11 @@ class AdminBlock extends Component {
     );
   }
 }
+
+AdminBlock.propTypes = {
+  adminCard: PropTypes.objectOf.isRequired,
+  adminTitle: PropTypes.string.isRequired,
+  adminDesc: PropTypes.string.isRequired,
+};
 
 export default connect(null, null)(AdminBlock);

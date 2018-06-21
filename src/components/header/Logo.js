@@ -1,19 +1,13 @@
-/* eslint-disable */
-
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import logo from './../../assets/logo_surfrider.png';
 
-class Logo extends Component {
-  render() {
-    const Logo = styled.div`
-      display: inline-block;
-    `;
-  
-    return (
-      <Logo><img src={logo}/></Logo>
-    );
-  }
-}
+const LogoContainer = styled.div`
+  display: inline-block;
+`;
+
+const Logo = () => (
+  <LogoContainer><img src={logo} alt="logo" /></LogoContainer>
+);
 
 export default Logo;

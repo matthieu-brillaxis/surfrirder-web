@@ -1,14 +1,13 @@
-/* eslint-disable */
-
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from './Button';
 import calamar from '../../assets/img/calamar.png';
 import transition from './../../assets/vague_transition4.png';
 
-class StoreBlock extends Component {
+class StoreBlock extends PureComponent {
   render() {
-    const StoreBlock = styled.div`
+    const StoreBlockContainer = styled.div`
       width: 100%;
       padding: 20px;
       display: flex;
@@ -62,13 +61,19 @@ class StoreBlock extends Component {
     `;
 
     return (
-      <StoreBlock>
+      <StoreBlockContainer>
         <H1>{ this.props.title }</H1>
-        <Subtitle>{ this.props.subtitle }</Subtitle> 
-         <Button buttonTitle={this.props.label}></Button>
-      </StoreBlock>
+        <Subtitle>{ this.props.subtitle }</Subtitle>
+        <Button buttonTitle={this.props.label} />
+      </StoreBlockContainer>
     );
   }
 }
+
+StoreBlock.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+};
 
 export default StoreBlock;

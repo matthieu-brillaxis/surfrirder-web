@@ -1,11 +1,10 @@
-/* eslint-disable */
-
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-class Button extends Component {
+class Button extends PureComponent {
   render() {
-    const Button = styled.div`
+    const ButtonContainer = styled.div`
       background-color:#10677a;
       color:white;
       padding:16px;
@@ -15,11 +14,15 @@ class Button extends Component {
       font-size: 11px;
       text-align: center;
     `;
-  
+
     return (
-      <Button>{ this.props.buttonTitle }</Button>
+      <ButtonContainer>{ this.props.buttonTitle }</ButtonContainer>
     );
   }
 }
+
+Button.propTypes = {
+  buttonTitle: PropTypes.string.isRequired,
+};
 
 export default Button;

@@ -1,12 +1,8 @@
-/* eslint-disable */
-
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-class ButtonDonation extends Component {
-  render() {
-    const ButtonDonation = styled(Link)`
+const ButtonDonationContainer = styled(Link)`
       background-color: #3BA9BC;
       border-radius: 18px;
       color: white;
@@ -18,11 +14,9 @@ class ButtonDonation extends Component {
       text-decoration:none;
       line-height:4px;
     `;
-  
-    return (
-      <ButtonDonation to='/faire-un-don'>Faire un don</ButtonDonation>
-    );
-  }
-}
+
+const ButtonDonation = () => (
+  <ButtonDonationContainer to="/faire-un-don">Faire un don</ButtonDonationContainer>
+);
 
 export default ButtonDonation;

@@ -1,13 +1,12 @@
-/* eslint-disable */
-
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import transition from './../../assets/vague_transition1.png';
 import transition2 from './../../assets/vague_transition2.png';
 
-class WhiteBlock extends Component {
+class WhiteBlock extends PureComponent {
   render() {
-    const WhiteBlock = styled.div`
+    const WhiteBlockContainer = styled.div`
       display:flex;
       flex-direction:column;
       flex-wrap:wrap;
@@ -48,11 +47,15 @@ class WhiteBlock extends Component {
     `;
 
     return (
-      <WhiteBlock>
+      <WhiteBlockContainer>
         <P>{ this.props.text }</P>
-      </WhiteBlock>
+      </WhiteBlockContainer>
     );
   }
 }
+
+WhiteBlock.propTypes = {
+  text: PropTypes.string.isRequired,
+};
 
 export default WhiteBlock;

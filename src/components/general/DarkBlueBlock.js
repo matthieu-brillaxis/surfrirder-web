@@ -1,24 +1,16 @@
-/* eslint-disable */
-
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ListeDeroulante from './ListeDeroulante'
+import ListeDeroulante from './ListeDeroulante';
 import transition from './../../assets/vague_transition4.png';
 import plongeur from './../../assets/img/plongeur.png';
 import fish from './../../assets/img/poisson_lanterne.png';
 import bubble3 from './../../assets/img/bulle3.png';
 import bubble4 from './../../assets/img/bulle4.png';
 
-class DarkBlueBlock extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showList: false
-    };
-  }
-
+class DarkBlueBlock extends PureComponent {
   render() {
-    const DarkBlueBlock = styled.div`
+    const DarkBlueBlockContainer = styled.div`
       display: flex;
       flex-direction: column;
       background-color: #0B3E49;
@@ -82,21 +74,27 @@ class DarkBlueBlock extends Component {
       left: 10%;
     `;
 
+    const ListeDeroulanteData = this.props.data.liste_deroulante;
+
     return (
-      <DarkBlueBlock>
-      <Fish src={fish} />
-      <DuoBubble src={bubble3} />
-      <SimpleBubble src={bubble4} />
+      <DarkBlueBlockContainer>
+        <Fish src={fish} />
+        <DuoBubble src={bubble3} />
+        <SimpleBubble src={bubble4} />
         <H1>{ this.props.data.titre }</H1>
         <Subtitle dangerouslySetInnerHTML={{ __html: this.props.data.sous_titre }} />
-         { this.props.data.liste_deroulante.map((prop, key) => {
-          return (
-            <ListeDeroulante key={key} data={prop}/>
-          );
-         })}
-      </DarkBlueBlock>
+        { ListeDeroulanteData.map((prop, key) => <ListeDeroulante key={key} data={prop} />)}
+      </DarkBlueBlockContainer>
     );
   }
 }
+
+DarkBlueBlock.propTypes = {
+  data: PropTypes.objectOf(PropTypes.shape({
+    titre: PropTypes.string.isRequired,
+    sous_titre: PropTypes.string.isRequired,
+    liste_deroulante: PropTypes.array.isRequired,
+  })).isRequired,
+};
 
 export default DarkBlueBlock;

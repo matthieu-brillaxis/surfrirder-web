@@ -1,24 +1,23 @@
-/* eslint-disable */
-
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import '../../assets/css/transition.css'
+import PropTypes from 'prop-types';
 import { CSSTransitionGroup } from 'react-transition-group';
+import styled from 'styled-components';
+import '../../assets/css/transition.css';
 
 class ListeDeroulante extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showList: false
+      showList: false,
     };
   }
 
-  handleClick = (event) => {
+  handleClick = () => {
     this.setState({ showList: !this.state.showList });
   };
 
   render() {
-    const ListeDeroulante = styled.div`
+    const ListeDeroulanteContainer = styled.div`
     `;
 
     const Title = styled.h4`
@@ -34,18 +33,25 @@ class ListeDeroulante extends Component {
     `;
 
     return (
-      <ListeDeroulante>
+      <ListeDeroulanteContainer>
         <Title>{ this.props.data.titre }<span onClick={this.handleClick}>+</span></Title>
-          <CSSTransitionGroup
-            transitionName="slide"
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}
-          >
-            { this.state.showList && <Description dangerouslySetInnerHTML={{ __html: this.props.data.contenu }} /> }
-          </CSSTransitionGroup>
-       </ListeDeroulante>
+        <CSSTransitionGroup
+          transitionName="slide"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}
+        >
+          { this.state.showList && <Description dangerouslySetInnerHTML={{ __html: this.props.data.contenu }} /> }
+        </CSSTransitionGroup>
+      </ListeDeroulanteContainer>
     );
   }
 }
+
+ListeDeroulante.propTypes = {
+  data: PropTypes.objectOf(PropTypes.shape({
+    titre: PropTypes.string.isRequired,
+    contenu: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default ListeDeroulante;

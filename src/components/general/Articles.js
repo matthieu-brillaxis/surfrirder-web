@@ -1,19 +1,18 @@
-/* eslint-disable */
-
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from './../general/Button';
 
 class Articles extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'all', articles: this.props.data, limit: 5};
+    this.state = { value: 'all', articles: this.props.data, limit: 5 };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    this.setState({limit: 5});
-    this.setState({value: event.target.value});
+    this.setState({ limit: 5 });
+    this.setState({ value: event.target.value });
     if (event.target.value === 'all') {
       this.state.articles = this.props.data;
     } else {
@@ -21,13 +20,12 @@ class Articles extends Component {
     }
   }
 
-  handleClick = (event) => {
-    this.setState({limit: this.state.limit + 5});
+  handleClick = () => {
+    this.setState({ limit: this.state.limit + 5 });
   };
 
   render() {
-    console.log(this.props.data);
-    const Articles = styled.div`
+    const ArticlesContainer = styled.div`
       display: flex;
       flex-direction: column;
       background-color: #3BA9BC;
@@ -53,32 +51,34 @@ class Articles extends Component {
     const DateArticle = styled.span`
       color: white;
     `;
-  
+
     return (
-      <Articles>
-      <Select id="filter" value={this.state.value} onChange={this.handleChange}>
-        <option value="all">Tous les articles</option> 
-        <option value="Amenagement du littoral">Amenagement du littoral</option> 
-        <option value="Dechets aquatiques">Dechets aquatiques</option>
-        <option value="Infrastructures Maritimes">Infrastructures Maritimes</option>
-        <option value="Ocean et Climat">Ocean et Climat</option>
-        <option value="Qualité des eaux">Qualité des eaux</option>
-        <option value="Surf et Patrimoine">Surf et Patrimoine</option>
-      </Select>
-      { this.state.articles.slice(0, this.state.limit).map((prop, key) => {
-        return (
-          <Article key={key}>
-            <H5>{prop.title.rendered}</H5>
-            <DateArticle>{prop.date}</DateArticle>
-          </Article>
-        );
-     })}
-     <div onClick={this.handleClick}>
-     <Button buttonTitle={'Charger plus d\'articles'}/>
-     </div>
-      </Articles>
+      <ArticlesContainer>
+        <Select id="filter" value={this.state.value} onChange={this.handleChange}>
+          <option value="all">Tous les articles</option>
+          <option value="Amenagement du littoral">Amenagement du littoral</option>
+          <option value="Dechets aquatiques">Dechets aquatiques</option>
+          <option value="Infrastructures Maritimes">Infrastructures Maritimes</option>
+          <option value="Ocean et Climat">Ocean et Climat</option>
+          <option value="Qualité des eaux">Qualité des eaux</option>
+          <option value="Surf et Patrimoine">Surf et Patrimoine</option>
+        </Select>
+        { this.state.articles.slice(0, this.state.limit).map((prop, key) =>
+          (
+            <Article key={key}>
+              <H5>{prop.title.rendered}</H5>
+              <DateArticle>{prop.date}</DateArticle>
+            </Article>
+          ))
+        }
+        <Button onClick={this.handleClick} buttonTitle={'Charger plus d\'articles'} />
+      </ArticlesContainer>
     );
   }
 }
+
+Articles.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default Articles;

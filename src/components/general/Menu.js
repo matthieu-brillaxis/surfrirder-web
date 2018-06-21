@@ -1,14 +1,12 @@
-/* eslint-disable */
-
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faArrowLeft from '@fortawesome/fontawesome-free-solid/faArrowLeft';
 import faTimes from '@fortawesome/fontawesome-free-solid/faTimes';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { CSSTransitionGroup } from 'react-transition-group';
-import ButtonDonation from '../header/ButtonDonation';
 
 class Menu extends Component {
   constructor(props) {
@@ -19,46 +17,24 @@ class Menu extends Component {
     };
   }
 
-  handleClick = (event) => {
-    this.setState({display: !this.state.display});
+  handleClick = () => {
+    this.setState({ display: !this.state.display });
   };
 
   ClickOnMenu = (e) => {
-    this.setState({submenu: e});
+    this.setState({ submenu: e });
   };
 
-  handleCloseSubMenu = (e) => {
-    this.setState({submenu: null})
+  handleCloseSubMenu = () => {
+    this.setState({ submenu: null });
   }
 
-  handleCloseAllMenu = (e) => {
-    this.setState({display: false});
-    this.setState({submenu: null});
+  handleCloseAllMenu = () => {
+    this.setState({ display: false });
+    this.setState({ submenu: null });
   }
 
   render() {
-    // const Menu = styled.header`
-    //   position: absolute;
-    // `;
-
-    // const ContentMenu = styled.div`
-    //   background-color: #3CA9BD;
-    //   position: absolute;
-    //   width: 100%
-    //   height: 100%;
-    //   z-index: 999;
-    //   position: fixed;
-    //   overflow-y: hidden;
-    //   top: 0;
-    //   color: white;
-    //   transition-property: all;
-	  //   transition-duration: .5s;
-    //   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-    //   transition: all .5s ease-in-out;
-    // `;
-
-    //display: ${this.state.display ? 'block' : 'hidden'};
-
     const BurgerButton = styled.div``;
 
     const BurgerButtonBarre = styled.div`
@@ -115,53 +91,62 @@ class Menu extends Component {
       line-height:4px;
     `;
 
-      return (
-        <div className='MenuContainer'>
+    return (
+      <div className="MenuContainer">
         <BurgerButton onClick={this.handleClick}>
-          <BurgerButtonBarre/>
-          <BurgerButtonBarre/>
-          <BurgerButtonBarre/>
+          <BurgerButtonBarre />
+          <BurgerButtonBarre />
+          <BurgerButtonBarre />
         </BurgerButton>
-        <CSSTransitionGroup transitionName="example"
+        <CSSTransitionGroup
+          transitionName="example"
           transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
-          { this.state.display ? <div className='contentMenu'>
-            <Close onClick={this.handleClick}><FontAwesomeIcon icon={faTimes} /></Close>
+          transitionLeaveTimeout={300}
+        >
+          { this.state.display ?
+            <div className="contentMenu">
+              <Close onClick={this.handleClick}><FontAwesomeIcon icon={faTimes} /></Close>
               <Ul>
-                <Li><StyledLink to='/'>Accueil</StyledLink></Li>
+                <Li><StyledLink to="/">Accueil</StyledLink></Li>
                 {this.props.mainMenu.items &&
                   this.props.mainMenu.items.map(element => (
                     <Li key={element.id}>
                       <p onClick={() => this.ClickOnMenu(element.children)} >{element.title}</p>
                     </Li>
                   ))}
-                  <Li>
-                    <Donation to='/faire-un-don'>Faire un don</Donation>
-                  </Li>
+                <Li>
+                  <Donation to="/faire-un-don">Faire un don</Donation>
+                </Li>
               </Ul>
             </div> : null }
         </CSSTransitionGroup>
-        <CSSTransitionGroup transitionName="example"
+        <CSSTransitionGroup
+          transitionName="example"
           transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
-        { this.state.submenu && (
-          <div className='subMenu'>
-          <Close onClick={this.handleCloseAllMenu}><FontAwesomeIcon icon={faTimes} /></Close>
-          <Close onClick={this.handleCloseSubMenu}><FontAwesomeIcon icon={faArrowLeft} /> Retour</Close>
+          transitionLeaveTimeout={300}
+        >
+          { this.state.submenu && (
+          <div className="subMenu">
+            <Close onClick={this.handleCloseAllMenu}><FontAwesomeIcon icon={faTimes} /></Close>
+            <Close onClick={this.handleCloseSubMenu}><FontAwesomeIcon icon={faArrowLeft} /> Retour</Close>
             <Ul>
               { this.state.submenu.map(element => (
                 <Li key={element.id}><StyledLink to={element.object_slug}>{element.title}</StyledLink></Li>
               ))}
               <Li>
-                <Donation to='/faire-un-don'>Faire un don</Donation>
+                <Donation to="/faire-un-don">Faire un don</Donation>
               </Li>
             </Ul>
           </div>
         )}
         </CSSTransitionGroup>
-        </div>
-      );
+      </div>
+    );
   }
 }
 
-export default connect(null,null)(Menu);
+Menu.propTypes = {
+  mainMenu: PropTypes.object.isRequired,
+};
+
+export default connect(null, null)(Menu);
