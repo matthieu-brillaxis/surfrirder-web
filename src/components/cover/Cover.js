@@ -9,9 +9,9 @@ class Cover extends Component {
   render() {
     const Cover = styled.div`
       width: 100%;
-      height: 280px;
       background-color: #EEE7E3;
       padding: 20px;
+      padding-bottom: 90px;
     `;
 
     const H1 = styled.h1`
@@ -21,6 +21,7 @@ class Cover extends Component {
 
     const Subtitle = styled.div`
       color: #3ba9bc;
+      font-size: 0.9em;
     `;
 
     const Icon = styled.img`

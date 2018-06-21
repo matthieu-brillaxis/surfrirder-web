@@ -348,7 +348,7 @@ class FaireUnDon extends Component {
             <div className="blanc left sizeText marginBottom">Choisissez votre moyen de paiement :</div>
 
             <br />
-            <FlexBetween>
+            <FlexBetween>s
             <div className="conteneurRadio lol">
             <input type="radio" name="don" value="cb" id="cb" className="radiobutton"/>
             <Radio2 htmlFor="cb"><Icone2 src={cb}/></Radio2>

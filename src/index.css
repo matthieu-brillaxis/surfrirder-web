@@ -236,6 +236,10 @@ body {
   text-align: left;
 }
 
+.marginTop {
+  margin-top: 20px;
+}
+
 .marginBottom {
   margin-bottom: 10px;
 }
