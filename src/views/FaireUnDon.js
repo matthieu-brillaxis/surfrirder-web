@@ -168,6 +168,13 @@ class FaireUnDon extends Component {
     padding: 18px;
     `;
 
+    const Radio2 = styled.label`
+    color: white;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    `;
+
     const Wesh = styled.div`
     background-color: #78CBDA;
     color: #0B3E4A;
@@ -344,22 +351,22 @@ class FaireUnDon extends Component {
             <FlexBetween>
             <div className="conteneurRadio lol">
             <input type="radio" name="don" value="cb" id="cb" className="radiobutton"/>
-            <Radio htmlFor="cb"><Icone2 src={cb}/></Radio>
+            <Radio2 htmlFor="cb"><Icone2 src={cb}/></Radio2>
             </div>
             <div className="conteneurRadio lol">
               <input type="radio" name="don" value="Cheque" id="Cheque" className="radiobutton"/>
-              <Radio htmlFor="Cheque">Cheque</Radio>
+              <Radio2 htmlFor="Cheque">Cheque</Radio2>
             </div>
             </FlexBetween>
 
             <FlexBetween>
             <div className="conteneurRadio lol">
             <input type="radio" name="don" value="paypal" id="paypal" className="radiobutton"/>
-            <Radio htmlFor="paypal"><Icone2 src={paypal}/></Radio>
+            <Radio2 htmlFor="paypal"><Icone2 src={paypal}/></Radio2>
           </div>
           <div className="conteneurRadio lol">
             <input type="radio" name="don" value="IBAN" id="IBAN" className="radiobutton"/>
-            <Radio htmlFor="IBAN">IBAN</Radio>
+            <Radio2 htmlFor="IBAN">IBAN</Radio2>
           </div>
             </FlexBetween>
 
