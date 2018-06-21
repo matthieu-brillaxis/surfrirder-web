@@ -130,7 +130,6 @@ class FaireUnDon extends Component {
     border-left: none;
     border-right: none;
     border-bottom: 1px solid #0B3E4A;
-    width: 250px;
     height: 40px;
     font-size: 0.8em;
 
@@ -166,7 +165,7 @@ class FaireUnDon extends Component {
     color: white;
     border: 2px solid white;
     border-radius: 10px;
-    padding: 10px;
+    padding: 18px;
     `;
 
     const Wesh = styled.div`
