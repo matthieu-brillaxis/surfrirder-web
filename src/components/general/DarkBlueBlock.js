@@ -17,7 +17,6 @@ class DarkBlueBlock extends Component {
     };
   }
 
-
   render() {
     const DarkBlueBlock = styled.div`
       display: flex;
