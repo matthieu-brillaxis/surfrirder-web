@@ -71,11 +71,171 @@ body {
   transition: all .5s ease-in-out;
 }
 
+.sizeText {
+  font-size: 0.8em;
+}
+
 .blueColor {
   color: #5BA6B6;
 }
 
 .radiobutton {
   visibility: hidden;
+  width: 0;
+  height: 0;
 }
 
+.conteneurRadio {
+  margin: 10px;
+}
+
+.conteneurRadio input:checked ~ label {
+  border: 2px solid #176779;
+  color: #176779;
+}
+
+.darkColor {
+  color: #1B6F81;
+}
+
+.selectDonation {
+  border: 2px solid #0B3E4A;
+  color: #0B3E4A;
+  background-color: transparent;
+  width: 100%;
+  height: 40px;
+  font-size: 1em;
+  margin-bottom: 20px;
+}
+
+.inputCheckbox {
+  display: flex;
+  text-align: left;
+}
+
+.inputCheckbox label {
+  font-size: 0.8em;
+}
+
+.inputCheckbox .checkmark { 
+    min-width: 20px;
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid #0B3E4A;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.inputCheckbox input {
+  visibility: hidden;
+  width: 0;
+}
+
+.inputCheckbox input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+.checkmark:after {
+  content: "";
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.inputCheckbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.inputCheckbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 2px;
+  height: 8px;
+  border: solid #0B3E4A;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin: 2px 6px;
+}
+
+.inputRadio {
+  display: flex;
+  text-align: left;
+}
+
+.inputRadio label {
+  font-size: 0.8em;
+  color: white;
+}
+
+.inputRadio .checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.inputRadio input {
+  visibility: hidden;
+  width: 0;
+}
+
+.inputRadio input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+/* Show the checkmark when checked */
+.inputRadio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.inputRadio .checkmark:after {
+  width: 4px;
+  height: 4px;
+  border: solid white;
+  border-radius: 10px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  margin: 3px 3px;
+  background-color: white;
+}
+
+.blanc {
+  color: white!important;
+}
+
+.blancBorder {
+  border: 2px solid white!important;
+}
+
+.backgroundBlue div {
+  background-color: #3CA9BD;
+}
+
+.lol {
+  display: inline-block;
+  width: 40%;
+  margin-bottom: 10px;
+}
+
+.lol label {
+  width: 100px;
+  height: 60px;
+  display: inline-block;
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.marginBottom {
+  margin-bottom: 10px;
+}
